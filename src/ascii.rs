@@ -41,7 +41,7 @@ fn main() {
         if q.starts_with("0x") || q.starts_with("0b") || q.starts_with("0o") {
             ch = number_to_char(&q);
         } else if q.len() == 2 && q.starts_with('^') {
-            ch = caret_notatoin(&q);
+            ch = caret_notation(&q);
         } else if !q.is_empty() && q.is_ascii() {
             let first_ch = q.chars().next().unwrap();
             if q.len() >= 2 || (!args.digit && first_ch.is_ascii_digit()) {
@@ -144,7 +144,7 @@ fn number_to_char(number: &str) -> Option<char> {
     }
 }
 
-fn caret_notatoin(text: &str) -> Option<char> {
+fn caret_notation(text: &str) -> Option<char> {
     match text.strip_prefix('^').unwrap().chars().next().unwrap() {
         ch @ ('@'..='_' | '?') => Some(((ch as u8) ^ 0x40) as char),
         _ => None,
