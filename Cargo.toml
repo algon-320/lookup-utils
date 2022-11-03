@@ -18,4 +18,4 @@ path = 'src/errno.rs'
 [dependencies]
 libc = "0.2.137"
 clap = { version = "4.0.18", features = ["derive"] }
-box-drawing-table = { git = "https://github.com/algon-320/box-drawing-table" }
+box-drawing-table = "0.1.0"
