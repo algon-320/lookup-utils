@@ -1,3 +1,13 @@
+#![cfg(all(
+    target_os = "linux",
+    any(
+        target_arch = "x86_64",
+        target_arch = "x86",
+        target_arch = "arm",
+        target_arch = "aarch64"
+    )
+))]
+
 use box_drawing_table::{ansi_term::Style, Align, Border, Cell, CellSize, Column, Row, Table};
 use clap::Parser;
 use libc::{c_int, strerror};
@@ -398,15 +408,6 @@ impl ErrnoDesc {
         self.name.as_str()
     }
 
-    #[cfg(all(
-        target_os = "linux",
-        any(
-            target_arch = "x86_64",
-            target_arch = "x86",
-            target_arch = "arm",
-            target_arch = "aarch64"
-        )
-    ))]
     fn number(&self) -> Option<c_int> {
         let num = match self.name.as_str() {
             "E2BIG" => libc::E2BIG,
