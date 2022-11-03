@@ -8,6 +8,23 @@ This repository provides following commands:
 - `signal`: lookup Linux signals
 - `errno`: lookup Linux error numbers
 
+## Installation
+
+To install:
+```
+$ git clone https://github.com/algon-320/lookup-utils && cd lookup-utils
+$ cargo install --path . --bins
+
+$ # install only the specified command
+$ cargo install --path . --bin ascii   
+$ cargo install --path . --bin signal
+$ cargo install --path . --bin errno
+```
+
+To uninstall:
+```
+$ cargo uninstall lookup-utils
+```
 
 ## Common options
 
