@@ -15,23 +15,25 @@ use std::ffi::CStr;
 
 // NOTE: based on Linux man-pages 6.01
 
-/// A simple utility to look up Linux errno's
+/// A simple utility to look up Linux error numbers (errno)
 #[derive(Debug, Parser)]
 #[clap(author, version, about, long_about = None)]
 struct Args {
     #[clap(value_parser)]
+    /// errno value (e.g. "2"),
+    /// or symbolic name (e.g. "ENOENT")
     query: Vec<String>,
 
     #[clap(long, default_value_t = false)]
-    /// disable pretty-printing
+    /// Disable pretty-printing
     simple: bool,
 
     #[clap(short, long, default_value_t = false)]
-    /// list all errors
+    /// List all errors
     list: bool,
 
     #[clap(long, default_value_t = false)]
-    /// display the description using strerror(3)
+    /// Display the description using strerror(3)
     libc: bool,
 }
 

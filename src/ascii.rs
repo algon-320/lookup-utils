@@ -10,15 +10,15 @@ struct Args {
     query: Vec<String>,
 
     #[clap(long, default_value_t = false)]
-    /// disable pretty-printing
+    /// Disable pretty-printing
     simple: bool,
 
     #[clap(short, long, default_value_t = false)]
-    /// list all signals
+    /// List all signals
     list: bool,
 
     #[clap(short, long, default_value_t = false)]
-    /// look up ASCII digits
+    /// Look up ASCII digits
     digit: bool,
 }
 

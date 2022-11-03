@@ -22,23 +22,23 @@ struct Args {
     #[clap(value_parser)]
     /// signal number (e.g. "2"),
     /// signal name (e.g. "SIGINT"),
-    /// or (if "-s" option is specified) shell status code (e.g. 130)
+    /// or shell status code (e.g. "130") if "-s" option is specified
     query: Vec<String>,
 
     #[clap(long, default_value_t = false)]
-    /// disable pretty-printing
+    /// Disable pretty-printing
     simple: bool,
 
     #[clap(short, long, default_value_t = false)]
-    /// list all signals
+    /// List all signals
     list: bool,
 
     #[clap(short, long, default_value_t = false)]
-    /// use status code instead of signal number
+    /// Interpret numbers as status code instead of signal number
     status: bool,
 
     #[clap(long, default_value_t = false)]
-    /// display the description using strsignal(3)
+    /// Display the description using strsignal(3)
     libc: bool,
 }
 
